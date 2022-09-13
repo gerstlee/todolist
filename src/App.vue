@@ -6,6 +6,17 @@
   <router-view/>
 </template>
 
+<script>
+import { useStore } from 'vuex';
+
+export default {
+  beforeCreate() {
+    const store = useStore();
+    store.commit('loadStore');
+  }
+}
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
