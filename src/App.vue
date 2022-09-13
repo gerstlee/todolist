@@ -24,11 +24,18 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 15px;
+  text-align: center;
   color: #2c3e50;
 }
 
 .nav {
   padding: 30px;
+}
+
+.nav a:hover {
+  box-shadow: 0 2px 5px #42b983;
+  transition: all 0.25s ease-out;
+  color: #42b983;
 }
 
 .nav a {
@@ -43,6 +50,7 @@ export default {
 
 .nav a.router-link-exact-active {
   color: #42b983;
+  box-shadow: 0 2px 5px #42b983;
 }
 
 h1 {
@@ -52,12 +60,12 @@ h1 {
 }
 
 input[type="submit"] {
-    background: #42b983;;
+    background: #42b983;
     color: white;
     border-radius: 10px;
     padding: 7.5px 15px;
     border: none;
-    box-shadow: 0 5px 10px #42b983;;
+    box-shadow: 0 5px 10px #42b983;
     font-size: 15px;
     font-weight: 600;
     transition: all 0.25s ease-out;

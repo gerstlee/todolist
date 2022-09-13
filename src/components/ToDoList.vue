@@ -10,11 +10,11 @@
                     <div class="archive-item" v-if="n.location !== 'archive'" @click="archiveItem" :data-id="n.id">Archive</div>
                 </div>
             </div>
-            <div id="new-todo-list-item">
+        </div>
+        <div id="new-todo-list-item">
                 <input type="text" id="new-todo-list-item-input" @keyup="updateItemText">
                 <input type="submit" id="new-todo-list-item-submit" @click="newItem" value="Add to do list item">
             </div>
-        </div>
     </div>
 </template>
 
@@ -84,5 +84,58 @@ export default {
 
     [data-status="true"] label {
         text-decoration: line-through;
+    }
+
+    [data-status="false"] label {
+    color: #42b983;
+    font-weight: 600;
+    }
+
+    #todo-list {
+        border-radius: 14px;
+        max-width: 400px;
+        border: 2px solid #ddd;
+        margin: 5px auto;
+    }
+
+    .list-item-holder {
+        display: flex;
+        padding: 15px 15px;
+        justify-content: space-between;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .item-options, .item-checkbox {
+        display: flex;
+    }
+
+    #new-todo-list-item {
+        padding: 15px;
+    }
+
+    #new-todo-list-item input[type="text"] {
+        margin: 0 0 15px 0;
+    }
+
+    .delete-item, .archive-item {
+        font-size: 13px;
+        background: #eee;
+        margin: 0 0 0 7px;
+        height: 15px;
+        border-radius: 100px;
+        transition: all 0.1s ease-out;
+        color: rgba(0,0,0,0.5);
+        cursor: pointer;
+        padding: 3.75px 11.25px;
+    }
+
+    .checkbox-items {
+    display: flex;
+    align-items: center;
+    }
+
+    .delete-item:hover, .archive-item:hover {
+    background: #ddd;
+    color: black;
     }
 </style>
