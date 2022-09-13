@@ -2,9 +2,13 @@
     <div id="todo-list">
         <div class="list-item" v-for="n in todos" :key="n.id">
             <div class="list-item-holder" v-if="n.location == location" :data-status="n.completed">
-                <input type="checkbox" :data-id="n.id" :id="n.id" @click="updateTodo" :checked="n.completed"><label :data-id="n.id" :for="n.id"></label>
-                <div class="delete-item" @click="deleteItem" :data-id="n.id">Delete</div>
-                <div class="archive-item" v-if="n.location !== 'archive'" @click="archiveItem" :data-id="n.id">Archive</div>
+                <div class="checkbox-items" :data-status="n.completed">
+                    <input type="checkbox" :data-id="n.id" :id="n.id" @click="updateTodo" :checked="n.completed"><label :data-id="n.id" :for="n.id">{{ n.name }}</label>
+                </div>
+                <div class="item-options">
+                    <div class="delete-item" @click="deleteItem" :data-id="n.id">Delete</div>
+                    <div class="archive-item" v-if="n.location !== 'archive'" @click="archiveItem" :data-id="n.id">Archive</div>
+                </div>
             </div>
             <div id="new-todo-list-item">
                 <input type="text" id="new-todo-list-item-input" @keyup="updateItemText">
@@ -77,7 +81,7 @@ export default {
     .list-item-holder {
         display: flex
     }
-    
+
     [data-status="true"] label {
         text-decoration: line-through;
     }
